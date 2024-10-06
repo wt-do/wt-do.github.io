@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>Markdowm入门</title>
+      <link href="/2024/09/27/markdown%E5%85%A5%E9%97%A8/"/>
+      <url>/2024/09/27/markdown%E5%85%A5%E9%97%A8/</url>
+      
+        <content type="html"><![CDATA[<h2 id="markdown入门"><a href="#markdown入门" class="headerlink" title="markdown入门"></a>markdown入门</h2><p>1.大(直接enter)小(shift+enter)换行<br>2.分割线—加回车<br>3.文字显示：<br><strong>粗体</strong> <del>删除线</del> <u>下划线</u> <em>斜体</em>  <strong><u>ok</u></strong>   &#x3D;&#x3D;高亮&#x3D;&#x3D;     用斜线\把隐藏的符号表示出来<br>4.上下标：上标^ 下标<del>（两个）x^2^  H</del>2~o<br>5.列表<br>无序列表：</p><ul><li><p><input disabled="" type="checkbox"> </p></li><li></li><li></li><li></li><li></li><li><p>+<br>  + </p><ul><li></li></ul></li></ul><p>1.<br>2. </p><p>   + </p><p>3. </p><p>任务列表：</p><ul><li><input checked="" disabled="" type="checkbox"> <ul><li><input disabled="" type="checkbox"> <ul><li>[ ]</li></ul></li></ul></li></ul><p>区块显示：</p><blockquote></blockquote><p>代码显示：<code>int</code></p><p>代码块：</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br></pre></td></tr></table></figure><p><a href="https://www.bilibili.com/">跳转哔哩哔哩</a></p><p><a href="https://www.bilibili.com/">哔哩哔哩 (゜-゜)つロ 干杯~-bilibili</a></p><p><a href="##markdown%E5%85%A5%E9%97%A8">头</a></p><p>文字说明<a href="%E8%A7%A3%E9%87%8A%E8%AF%B4%E6%98%8E%3Cbr%3E%E8%A7%A3%E9%87%8A%E6%8D%A2%E8%A1%8C%E4%BA%86">^1</a></p><p>图片插入： <img src="/"></p><p>src&#x3D;””表示路径   align&#x3D;”left&#x2F;right”表示左&#x2F;右对齐</p><p>表格(推荐ctrl加t)</p><table><thead><tr><th></th><th>tab</th><th>tab</th></tr></thead><tbody><tr><td></td><td></td><td>enter</td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr></tbody></table><p>数学公式</p><p>表情符号：😊</p><p>URL:<a href="https://www.bilibili.com/video/BV1h84y1Y7nn/?spm_id_from=333.1007.top_right_bar_window_history.content.click&vd_source=7d2fba46a0d0ef6ff7c7b6de0bd10fe3">【Typora 教程】手把手教你如何用Typora撰写笔记_哔哩哔哩_bilibili</a>来学习</p><iframe src="//player.bilibili.com/player.html?isOutside=true&aid=607133407&bvid=BV1h84y1Y7nn&cid=950020940&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe><p>URL:<a href="https://www.bilibili.com/video/BV1JA411h7Gw/?spm_id_from=333.337.search-card.all.click&vd_source=7d2fba46a0d0ef6ff7c7b6de0bd10fe3">8分钟让你快速掌握Markdown_哔哩哔哩_bilibili</a>来复习检查</p><iframe src="//player.bilibili.com/player.html?isOutside=true&aid=327623069&bvid=BV1JA411h7Gw&cid=171385214&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hello World</title>
+      <link href="/2024/09/13/hello-world/"/>
+      <url>/2024/09/13/hello-world/</url>
+      
+        <content type="html"><![CDATA[<p>梦开始的地方  hello world！！！<br>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+  
+  
+</search>
