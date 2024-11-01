@@ -1,0 +1,274 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>网络编程 | wt-do的博客</title><meta name="author" content="wt"><meta name="copyright" content="wt"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="网络网络通信三要素1,IP:电子设备（计算机）在网络中的唯一标识。2.端口：应用程序在计算机中的唯一标识。0~655363,传输协议：规定了数据传输的规厕1,基础协议：1.tcp:安全协议，三次握手。速度稍慢2.udp:不安全协议。速度快 服务器：web服务器软件：Tomcat服务器：安装了服务器软件的计算机服务器软件：接收用户的请求，处理请求，做出响应web服务器软件：接收用户的请求，处理请求，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网络编程">
+<meta property="og:url" content="https://wt-do.github.io/2024/10/31/Internet/index.html">
+<meta property="og:site_name" content="wt-do的博客">
+<meta property="og:description" content="网络网络通信三要素1,IP:电子设备（计算机）在网络中的唯一标识。2.端口：应用程序在计算机中的唯一标识。0~655363,传输协议：规定了数据传输的规厕1,基础协议：1.tcp:安全协议，三次握手。速度稍慢2.udp:不安全协议。速度快 服务器：web服务器软件：Tomcat服务器：安装了服务器软件的计算机服务器软件：接收用户的请求，处理请求，做出响应web服务器软件：接收用户的请求，处理请求，">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://wt-do.github.io/img/touxiang.jpg">
+<meta property="article:published_time" content="2024-10-31T13:57:32.076Z">
+<meta property="article:modified_time" content="2024-10-31T13:58:59.853Z">
+<meta property="article:author" content="wt">
+<meta property="article:tag" content="javase,javaweb,markdown">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://wt-do.github.io/img/touxiang.jpg"><link rel="shortcut icon" href="/img/image.png"><link rel="canonical" href="https://wt-do.github.io/2024/10/31/Internet/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"><link rel="preconnect" href="//busuanzi.ibruce.info"><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":true,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":260},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '网络编程',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-10-31 21:58:59'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/modify.css"><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/touxiang.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="wt-do的博客"><span class="site-name">wt-do的博客</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">网络编程</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-10-31T13:57:32.076Z" title="发表于 2024-10-31 21:57:32">2024-10-31</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-10-31T13:58:59.853Z" title="更新于 2024-10-31 21:58:59">2024-10-31</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="网络编程"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h1><p><strong>网络通信三要素</strong><br>1,IP:电子设备（计算机）在网络中的唯一标识。<br>2.端口：应用程序在计算机中的唯一标识。0~65536<br>3,传输协议：规定了数据传输的规厕<br>1,基础协议：<br>1.tcp:安全协议，三次握手。速度稍慢<br>2.udp:不安全协议。速度快</p>
+<h1 id="服务器："><a href="#服务器：" class="headerlink" title="服务器："></a>服务器：</h1><h2 id="web服务器软件：Tomcat"><a href="#web服务器软件：Tomcat" class="headerlink" title="web服务器软件：Tomcat"></a>web服务器软件：Tomcat</h2><p>服务器：安装了服务器软件的计算机<br>服务器软件：接收用户的请求，处理请求，做出响应<br>web服务器软件：接收用户的请求，处理请求，做出响应   可部署项目，让用户通过浏览器来访问这些项目</p>
+<h6 id="启动报错："><a href="#启动报错：" class="headerlink" title="启动报错："></a>启动报错：</h6><p>1,暴力：找到占用的端口号，并且找到对应的进程，杀死该进程	netstat -ano<br>2.温柔：修改自身的端口号	conf/server.xml<br>&lt;Connector port=”8888”protocol=”HTTP/1.1”<br>connectionTimeout=”20000”<br>redirectPort=”8445”/&gt;</p>
+<h6 id="5-关闭："><a href="#5-关闭：" class="headerlink" title="5.关闭："></a>5.关闭：</h6><p>1,正常关闭<br>bin/shutdown.bat<br>ctrl+c<br>2.强制关闭：<br>*点击后动窗口的×</p>
+<h6 id="配置："><a href="#配置：" class="headerlink" title="配置："></a>配置：</h6><p>*部署项目的方式：<br>1,直接将项目放到webapps目录下即可。<br>*/he1lo:项目的访问路径–&gt;虚拟目录<br>简化部署：将项目打成一个war包，再将war包放置到webapps目录下<br>*war包会自动解压缩<br> 3.在conf升Catalina\localhost创建任意名称的xml文件。在文件中编写<br><context docbase="D:\hello"><br>*虚拟目录：xml文件的名称</context></p>
+<h1 id="Servlet：server-applet"><a href="#Servlet：server-applet" class="headerlink" title="Servlet：server applet"></a>Servlet：server applet</h1><p>Servlet server applet<br>*概念：运行在服务器端的小程序<br>*Servlet就是一个接口，定义了Java类被浏览器访问到(tomcat识别)的规则<br>定义类实现接口</p>
+<h6 id="执行原理："><a href="#执行原理：" class="headerlink" title="执行原理："></a>执行原理：</h6><p>1,当服务器接收到客户端浏览器的请求后，会解析请求URL路径，获取访问的Servlet的资源路径<br>2.查找web.xml文件，是否有对应的<url-pattern>标签体内容。<br>3.如果有，则在找到对应的<servlet-class>全类名<br>4.tomcat会将字节码文件加载进内存，并且创建其对象<br>5.调用其方法</servlet-class></url-pattern></p>
+<h6 id="Servlet中的生命周期方法："><a href="#Servlet中的生命周期方法：" class="headerlink" title="Servlet中的生命周期方法："></a>Servlet中的生命周期方法：</h6><p>1.被创建：执行init方法，只执行一次</p>
+<p>​	在<servlet>标签下配置<br>​		1,第一次被访问时，创建<br>​		*<load-on-startup>的值为负数<br>​		2.在服务器后动时，创建<br>​		*<load-on-startup>的值为0或正整数</load-on-startup></load-on-startup></servlet></p>
+<p>Servlet的init方法，只执行一次，说明一个Servlet在内存中只存在一个对象，Servlet:是单例的<br>*多个用户同时访问时，可能存在线程安全问题<br>解决：尽量不要在Servlet中定义成员变量。即使定义了成员变量，也不要对修改值<br>2.提供服务：执行service方法，执行多次	每次访问Servlet时，Service方法都会被调用一次<br>3,被销毁：执行destroy,方法，只执行一次 	Servlet被销毁时执行。服务器关闭时(正常关闭)，Servlet被销毁</p>
+<h6 id="IDEA与tomcat的相关配置"><a href="#IDEA与tomcat的相关配置" class="headerlink" title="IDEA与tomcat的相关配置"></a>IDEA与tomcat的相关配置</h6><p>1.IDEA会为每一个tomcat部署的项目单独建立一份配置文件<br>查看控制台的1og:Using CATALINA_BASE:”c:\Users\fqy’.IntellijIdea2o18.1\system\tomcat\itcast”<br>2.工作空间项目<br>tomcat部署的web项目<br>tomcat真正访问的是“tomcat部署的web项目”，”tomcati部署的web项目”对应着”工作空间项目”的web目录下的所有资源<br>*WEB-INF目录下的资源不能被浏览器直接访问。<br>3,断点调试：使用”小虫子“层动dubug层动</p>
+<h6 id="Servlet的体系结构："><a href="#Servlet的体系结构：" class="headerlink" title="Servlet的体系结构："></a>Servlet的体系结构：</h6><p>GenericServlet:将Servlet接☐中其他的方法做了默认空实现，只将service()方法作为抽象<br>*将来定义Servlet类时，可以继承GenericServlet,实现service()方法即可<br>Httpservlet:对http协议的一种封装，简化操作<br>    1.定义类继承Httpservlet<br>    2,复写doGet/doPost方法</p>
+<h6 id="Servlet相关配置"><a href="#Servlet相关配置" class="headerlink" title="Servlet相关配置"></a>Servlet相关配置</h6><p>1,urlpartten:Servlet访问路径<br>1,一个Servlet可以定义多个访问路径：@WebServlet({“/d4”,”/dd4”,”/ddd4”})<br>2,路径定义规则：<br>    1./XXX<br>    2,/XXx/XXx:多层路径，目录结构<br>    3.*.d0</p>
+<h1 id="HTTP："><a href="#HTTP：" class="headerlink" title="HTTP："></a>HTTP：</h1><p>概念：Hyper Text Transfer Protocol超文本传输协议<br><strong>传输协议：</strong></p>
+<p>定义了，客户端和服务器端通信时，发送数据的格式**<br>特点：<br>1,基于TCP/IP的高级协议<br>2.默认端口号：80<br>3.基于请求/响应模型的：一次请求对应一次响应<br>4.无状态的：每次请求之间相互独立，不能交互数据<br>请求方式：<br>*HTTP协议有7中请求方式，常用的有2种<br>GET<br>1.请求参数在请求行中，在url后<br>2,请求的url长度有限制的<br>3,不太安全<br>POST<br>    1.请求参数在请求体中<br>    2.请求的url长度没有限制的<br>    3.相对安全<br>    <strong>2.请求头：</strong></p>
+<p>客户端告诉浏览器的信息<br>请求头名称：请求头值<br>*常见的请求头：<br>1,User-Agent:浏览器告诉服务器，我访问你使用的浏览器版本信息<br>可以在服务器端获取该头的信息，解决浏览器的兼容性问题<br>2.Referer <a target="_blank" rel="noopener" href="http://localhost/login.html">http://localhost/login.html</a><br>告诉服务器，我（当前请求）从哪里来？<br>*作用：1,防盗链		2.统计工作<br>3,请求空行   空行	就是用于分割PoST请求的请求头，和请求体的<br>4.请求体（正文）： 到装POST求消息的请求参数的</p>
+<h1 id="Request："><a href="#Request：" class="headerlink" title="Request："></a>Request：</h1><p>1.request对象和response对象的原理<br>    1.request和response对象是由服务器创建的。我们来使用它们<br>    2,request.对象是来获取请求消息，response对象是来设置响应消息</p>
+<h3 id="request功能："><a href="#request功能：" class="headerlink" title="request功能："></a>request功能：</h3><p>1,获取请求消息数据</p>
+<h4 id="1-获取请求行数据"><a href="#1-获取请求行数据" class="headerlink" title="1.获取请求行数据"></a>1.获取请求行数据</h4><p>GET /day14/demo1?name=zhangsan HTTP/1.1<br>方法：<br>1.获取请求方式：GET<br>string getMethod()<br>2.（*)获取虚拟目录：/day14<br>string getContextPath()<br>3.获取Servlet路径：/demo1<br>string getservletpath()<br>4.获取get方式请求参数：name=zhangsan<br>string getQuerystring()<br>5.获取请求URI:/day14/demo1<br>string getRequestURI():		/day14/demo1<br>stringBuffer getRequestURL()		<a target="_blank" rel="noopener" href="http://localhost/day14/demo1">http://localhost/day14/demo1</a><br>URL:统-资源定位符：http:/1oca1host/day14/demo<br>*URI:统一资源标识符：/day14/demo1<br>6.获取协议及版本：HTTP/1.1<br>string getprotocol()<br>7.获取客户机的IP地址：<br>string getRemoteAddr()</p>
+<h4 id="获取请求头："><a href="#获取请求头：" class="headerlink" title="获取请求头："></a>获取请求头：</h4><p>2,获取请求头数据<br>*方法：<br><strong>String getHeader(String name):通过请求头的名称获取请求头的值</strong><br>Enumeration<string>getHeaderNames():获取所有的请求头名称</string></p>
+<h4 id="获取请求体数据："><a href="#获取请求体数据：" class="headerlink" title="获取请求体数据："></a>获取请求体数据：</h4><p>*请求体：只有POST请求方式，才有请求体，在请求体中封装了POST请求的请求参数<br>步骤：<br>1,获取流对象<br>*BufferedReader getReader():获取字符输入流，只能操作字符数据<br>ServletInputstream getInputstream():获取字节输入流，可以操作所有类型数据<br>*在文件上传知识点后讲解<br>2,再从流对象中拿数据</p>
+<h4 id="获取请求参数通用方式-post和get都能用"><a href="#获取请求参数通用方式-post和get都能用" class="headerlink" title="获取请求参数通用方式(post和get都能用)"></a>获取请求参数通用方式(post和get都能用)</h4><p>1,string getparameter(String name):根据参数名称获取参数值<br>username=zs&amp;password=123<br>2,string[]getParametervalues(String name):根据参数名称获取参数值的数组hobby=xx&amp;hobby=game<br>3,Enumeration<string>getParameterNames():获取所有请求的参数名称<br>4.Map&lt;string,.string[]&gt;getParameterMap():获取所有参数的map集合</string></p>
+<p><strong>中文乱码问题：</strong><br>get方式：tomcat8已经将get方式乱码问题解决了<br>post方式：会乱码<br>解决：在获取参数前，设置requestf的编码request.setCharacterEncoding(“utf-8”);</p>
+<h4 id="请求转发："><a href="#请求转发：" class="headerlink" title="请求转发："></a>请求转发：</h4><p>1.步骤：<br>    1,通过request对象获取请求转发器对象：RequestDispatcher getRequestDispatcher(String path)<br>    2.使用RequestDispatcher对象来进行转发：forward(ServletRequest request,ServletResponse response)<br>2,特点：<br>    1.浏览器地址栏路径不发生变化<br>    2,只能转发到当前服务器内部资源中。<br>    3,转发是一次请求</p>
+<h4 id="共享数据："><a href="#共享数据：" class="headerlink" title="共享数据："></a>共享数据：</h4><p>域对象：一个有作用范围的对象，可以在范围内共享数据<br>request域：代表一次请求的范围，一般用于请求转发的多个资源中共享数据<br>方法：<br>1.void setAttribute(String name,object obj):存储数据<br>2.object getAttitude(String name):通过键获取值<br>3.void removeAttribute(String name):通过键移除键值对</p>
+<h4 id="获取ServletContext"><a href="#获取ServletContext" class="headerlink" title="获取ServletContext:"></a>获取ServletContext:</h4><p>Servletcontext getservletcontext()</p>
+<p>BeanUtils工具类：<br>populate(object obj,Mapmap):将map集合的键值对信息，封装到对应的]avaBean对象中</p>
+<h2 id="response："><a href="#response：" class="headerlink" title="response："></a>response：</h2><p>响应行:<br>1,组成：协议/版本响应状态码状态码描述<br>2,响应状态码：服务器告诉客户端浏览器本次请求和响应的一个状态。<br>1,状态码都是3位数字<br>2.分类：<br>1.1Xx:服务器就收客户端消息，但没有接受完成，等待一段时间后，发送1Xx多状态码<br>2.2Xx:成功。代表：200<br>3xx:重定向。代表：302（重定向），304（访问缓存）<br>4,4XX:客户端错误。<br>*代表：<br>*404(请求路径没有对应的资源)<br>*405:请求方式没有对应的doXxx方法<br>5,5xx:服务器端错误。代表：500（服务器内部出现异常）</p>
+<p>响应头：<br>1.格式：头名称：值<br>2,常的响应头：<br>1.Content-Type:服务器告诉客户端本次响应体数据格式以及编码格式<br>2,Content-disposition:服务器告诉客户端以什么格式打开响应体数据<br>值：in-line:默认值，在当前页面内打开<br>        attachment;filename=xxx:以附件形式打开响应体。文件下载<br>响应体:传输的数据</p>
+<h3 id="Response对象"><a href="#Response对象" class="headerlink" title="Response对象"></a>Response对象</h3><p>功能：设置响应消息<br>1,设置响应行<br>1,格式：HTTP/1,1200 ok<br>2,设置状态码<br>setstatus(int sc)<br>2,设置响应头：setHeader(String name,String value)<br>3,设置响应体：<br>*使用步骤：<br>1.获取输出流<br>字符输出流：Printwriter getwriter()<br>字节输出流：Servletoutputstream getoutputstream()<br>2.使用输出流，将数据输出到客户端浏览器</p>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">response.setStatus(<span class="number">302</span>);</span><br><span class="line">response.setHeader(<span class="string">"location"</span>,<span class="string">"另一个路径"</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">response.sendRedirect(<span class="string">"location"</span>,<span class="string">"另一个路径"</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+<p>重定向的特点：redirect<br>1,地址栏发生变化<br>2,重定向可以访问其他站点（服务器）的资源<br>3,重定向是两次请求。不能使用request对象来共享数据<br>转发的特点：forward<br>1,转发地址栏路径不变<br>2.转发只能访问当前服务器下的资源<br>3.转发是一次请求，可以使用request对象来共享数据<br>forward和redirect区别<br>动态获取虚拟目录：String contextPath request.getContextPath()；</p>
+<h3 id="绝对路径"><a href="#绝对路径" class="headerlink" title="绝对路径"></a>绝对路径</h3><p>通过绝对路径可以确定唯一资源<br><a target="_blank" rel="noopener" href="http://localhost/day15/responseDemo2">http://localhost/day15/responseDemo2</a><br>day15/responseDemo2<br>以/开头的路径<br>规则：判断定义的路径是给难用的？判断请求将来从哪儿发出<br>给客户端浏览器使用：需要加虚拟目录（项目的访问路径<br>*建议虚拟目录动态获取：request.getContextPath()<br><a>,</a></p><form><a>重定向.，<br>*给服务器使用：不需要加虚拟目录<br>转发路径<br> 注意：<br>*乱码问题：<br>1.Printwriter pw<br>response.getwriter();获取的流的默认编码是IS0-8859-1<br>2.设置该流的默认编码<br>3,告诉浏览器响应体使用的编码<br>//简单的形式，设置编码，是在获取流之前设置<br>response.setContentType(“text/html;charset=utf-8”);<p></p>
+</a><h3 id="ServletContex："><a></a><a href="#ServletContex：" class="headerlink" title="ServletContex："></a>ServletContex：</h3><p>获取对象：<br>//1.通过request.对象获取<br>ServletContext context1=request.getServletContext();<br>//2.通过HttpServlet获取<br>ServletContext context2=this.getServletContext();</p>
+<p>功能：<br>1.获取MIME类型：<br>MIME类型：在互联网通信过程中定义的一种文件数据类型<br>*格式：大类型/小类型<br>text/html 	image/jpeg<br>获取：String getMimeType(String file)<br>2,域对象：共享数据<br>1.setAttribute(string name,object value)<br>2.getAttribute(string name)<br>3.removeAttribute(string name)<br>*ServletContext对象范围：所有用户所有请求的数据<br>3,获取文件的真实（服务器路径<br>1.方法：String getRealPath(string path)</p>
+<h2 id="会话技术："><a href="#会话技术：" class="headerlink" title="会话技术："></a>会话技术：</h2><p>1,会话：一次会话中包含多次请求和响应。<br>*一次会话：浏览器第一次给服务器资源发送请求，会话建立，直到有一方断开为止<br>2,功能：在一次会话的范围内的多次请求间，共享数据<br>3.方式：<br>1.客户端会话技术：Cookie<br>2,服务器端会话技术：Session</p>
+<h4 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h4><p>1,概念：客户端会话技术，将数据保存到客户端<br>2.快速入门：<br>*使用步骤：<br>1.创建Cookie对象，绑定数据<br>new Cookie(string name,string value)<br>2,发送Cookie对象<br>response.addCookie(Cookie cookie)<br>3.获取Cookie,拿到数据<br>Cookie[]request.getcookies()</p>
+<p>3,实现原理<br>*基于响应头set-cookie和请求头cookie:实现<br>4,cookief的细节<br>1.一次可以发送多个cookie<br><em>可以创建多个Cookie对象，使用response调用多次addCookie方法发送cookie即可。<br>2.cookie在浏览器中保存多长时间？<br>1,默认情况下，当浏览器关闭后，Cookie数据被销毁<br>2,持久化存储：<br>setMaxAge(int seconds)<br>1.正数：将Cookie数据写到硬盘的文件中。持久化存储。并指定cookie存活时间，时间到后，cookie文件自动失效<br>2,负数：默认值<br>3.零：删除cookie信息<br>3</em>在tomcat8之前cookie中不能值接存储中文数据。<br>*需要将中文数据转码—一般采用URL编码(3)<br>*在tomcat8之后，cookie支持中文数据<br>    setDomain(String path):如果设置一级域名相同，那么多个服务器之间cookie可以共享<br>5,Cookie的特点和作用<br>    1.cookie存储数据在客户端浏览器<br>    2.浏览器对于单个cookie的大小有限制(4kb)以及对同一个域名下的总cookie数量也有限制<br>*作用：<br>    1.cookie一般用于存出少量的不太敏感的数据<br>    2,在不登录的情况下，完成服务器对客户端的身份识别</p>
+<h4 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h4><p>1,概念：服务器端会话技术，在一次会话的多次请求间共享数据，将数据保存在服务器端的对象中。<br>2,HttpSession快速入门：<br>    1,获取Httpsession对象：<br>    Httpsession session request.getsession();<br>    2,使用HttpSession.对象：<br>    object getAttribute(string name)<br>    void setAttribute(string name,object value)<br>    void removeAttribute(string name)<br>3,原理<br>*Session的实现是依赖于Cookie的<br>4.细节：<br>1.当客户端关闭后，服务器不关闭，两次获取session默认情况下不是同一个<br>*如果需要相同，则可以创建Cookie,键为JSESSIONID,设置最大存活时间，让cookie持久化保存<br>默认实现时间为30分钟</p>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">//选择配置修改</span></span><br><span class="line">&lt;session-config&gt;</span><br><span class="line">&lt;session-timeout&gt;<span class="number">30</span>&lt;/session-timeout&gt;</span><br><span class="line">&lt;/session-config&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">Cookie c <span class="keyword">new</span> <span class="title class_">Cookie</span>(<span class="string">"JSESSIONID"</span>,session.getId());</span><br><span class="line">c.setMaxAge(<span class="number">60</span>*<span class="number">60</span>);</span><br><span class="line">response.addCookie(c);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>5.sessiont的特点<br>1,5 ession用于存储一次会话的多次请求的数据，存在服务器端<br>2.session可以存储任意类型，任意大小的数据<br>*session-与Cookie的区别：<br>1,session存储数据在服务器端，Cookie在客户端<br>2.session没有数据大小限制，Cookie有<br>3,session数据安全，Cookie相对于不安全</p>
+<h2 id="JSP"><a href="#JSP" class="headerlink" title="JSP:"></a>JSP:</h2><p>1.概念：<br>*]ava Server Pages:java服务器端页面<br>*可以理解为：一个特殊的页面，其中既可以指定定义html标签，又可以定义java代码<br>*用于简化书写！！！<br>2,原理<br>*JSP本质上就是一个Servlet<br>3.JSP的脚本：JsP定义Java代码的方式<br>        1.&lt;%代码%&gt;：定义的java代码，在service方法中。service方法中可以定义什么，该脚本中就可以定义什么<br>        2,&lt;%!代码%&gt;：定义的java代码，在jsp转换后的java类的成员位置。<br>        3.&lt;%=代码%&gt;：定义的java代码，会输出到页面上。输出语句中可以定义什么，该脚本中就可以定义什么。<br>4.]SP的内置对象：<br>*在jsp页面中不需要获取和创建，可以直接使用的对象<br>*jsp一共有9个内置对象<br>request   response    out<br>*put:字符输出流对象。可以将数据输出到页面上。和response,getwriter()类似<br>*response.getwriter()和out.write()的区别：<br>*在tomcat服务器真正给客户端做出响应之前，会先找response缓冲区数据，再找out缓冲区数据<br>*response.getwriter()数据输出永远在out,.write()之前<br>内置对象：<br>在jsp页面中不需要创建，直接使用的对象<br>*一共有9个：</p>
+<table>
+<thead>
+<tr>
+<th align="center">变量名</th>
+<th align="center">真实类型</th>
+<th align="center">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">pageContext</td>
+<td align="center">PageContext</td>
+<td align="center">当前页面共享数据，还可以获取其他内置对象</td>
+</tr>
+<tr>
+<td align="center">request</td>
+<td align="center">HttpServletRequest</td>
+<td align="center">一次请求访问的多个资源（转发）</td>
+</tr>
+<tr>
+<td align="center">session</td>
+<td align="center">HttpSession</td>
+<td align="center">一次会话的多个请求间共享数据</td>
+</tr>
+<tr>
+<td align="center">application</td>
+<td align="center">ServletContext</td>
+<td align="center">所有用户间共享数据</td>
+</tr>
+<tr>
+<td align="center">response</td>
+<td align="center">HttpServletResponse</td>
+<td align="center">响应对象，用于向客户端发送响应</td>
+</tr>
+<tr>
+<td align="center">page</td>
+<td align="center">Object</td>
+<td align="center">当前页面(Servlet)的对象（this）</td>
+</tr>
+<tr>
+<td align="center">out</td>
+<td align="center">JspWriter</td>
+<td align="center">输出对象，用于将数据输出到页面上</td>
+</tr>
+<tr>
+<td align="center">config</td>
+<td align="center">ServletConfig</td>
+<td align="center">Servlet的配置对象，包含Servlet的初始化参数</td>
+</tr>
+<tr>
+<td align="center">exception</td>
+<td align="center">Throwable</td>
+<td align="center">异常对象，仅在错误页面中可用，代表错误或异常信息</td>
+</tr>
+</tbody></table>
+<h2 id="MVC"><a href="#MVC" class="headerlink" title="MVC:"></a>MVC:</h2><p>1.M:Model,模型。JavaBean<br>*完成具体的业务操作，如：查询数据库，封装对象<br>2.V:View,视图  JSP<br>*展示数据<br>3.C:Controller,控制器。Servlet<br>*获取用户的输入<br>调用模型<br>将数据交给视图进行展示<br>*优缺点：<br>1.优点：<br>1.耦合性低，方便维护，可以利于分工协作<br>2.重用性高<br>2,缺点：<br>1,使得项目架构变得复杂，对开发人员要求高</p>
+<h2 id="EL表达式"><a href="#EL表达式" class="headerlink" title="EL表达式"></a>EL表达式</h2><p>1.概念：Expression Language表达式语言<br>2,作用：替换和简化jsp页面中java代码的编写<br>3,语法：${表达式}<br>4,注意：<br>jsp默认支持el表达式的。如果要忽略el表达式<br>1,设置jsp中page指分中：isELIgnored=”true”忽略当前jsp页面中所有的el表达式<br>I2.$(表达式)：忽略当前这个el表达式<br>5.使用：<br>1,运算：<br>    运算符：<br>    1,算数运算符：+  -  *  /  (div)   %   (mod）<br>    2,比较运算符：</p>
+<p>&lt;  &gt;  +  = &lt;=  ==  !=<br>3,逻辑运算符：&amp;&amp;(and)    || (or) 	!(not)<br>4,空运算符：<br>empty<br>*功能：用于判断字符串、集合、数组对象是否为null并且长度是否为0<br>${fempty list} </p>
+<p>2.获取值<br>1.e1表达式只能从域对象中获取值<br>2,语法：<br>1,(英文符号){域名称.键名}：从指定域中获取指定键的值<br>域名称：<br>1.pagescope–pagecontext<br>2.requestscope–request<br>3.sessionScope–session<br>4.applicationScope –application (ServletContext)<br>*举例：在request域中存储了name=张三<br>    获取：</p>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">${requestScope.name}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>​		2,{键名}：表示依次从最小的域中查找是否有该键对应的值，直到找到为止<br>​		3,获取对象、List集合、Map集合的值<br>​		1.对象：$域名称.键名.属性名}<br>​		*本质上会去调用对象的getter方法</p>
+<p>​		2.List集合：	${域名称.键名[索引]}</p>
+<p>3,Map集合：	${域名称.键名.key名称}			${域名称.键名[“key名称”]</p>
+<h2 id="JSTL"><a href="#JSTL" class="headerlink" title="JSTL:"></a>JSTL:</h2><p>I,概念：]avaServer Pages Tag Library<br>JSP标准标签库<br>*是由Apache组织提供的开源的免费的jsp标签<br>&lt;标签&gt;<br>2,作用：用于简化和替换jsp页面上的java代码<br>3.使用步骤：<br>    1,导入jst1相关jar包<br>    2.引入标签库：tag1ib指今：&lt;%@taglib%&gt;<br>    3.使用标签</p>
+<p>4.常用的]STL标签<br>1,if:相当于java代码的if语句<br>1.属性：<br>*test必须属性，接受boolean表达式<br>*如果表达式为true,则显示if标签体内容，如果为false,则不显示标签体内容<br>*一般情况下，test属性值会结合el表达式一起使用<br>2.注意：<br>*c:if标签没有else情况，想要else情况，则可以在定义一个c:if标签<br>2,choose:相当于java代码的switch语句<br>1,使用choose标签声明<br>相当于switch声明<br>2.使用when标签做判断<br>相当于case<br>3,使用otherwise标签做其他情况的声明<br>相当于default</p>
+<p>foreach:相当于java代码的for语句<br>1.完成重复的操作<br>for(int i 0;i&lt;10;i++) {<br>属性：<br>begin:开始值<br>end:结束值<br>var:临时变量<br>step:步长<br>varStatus:循环状态对象<br>index:容器中元素的索引，从o开<br>count:循环次数，从1开始<br>2.遍历容器<br>List<user>list;<br>for(User user list){<br>*属性：<br>items:容器对象<br>var:容器中元素的临时变量<br>varStatus:循环状态对象<br>index:容器中元素的索引，从g开始<br>count:循环次数，从1开始</user></p>
+</form></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://wt-do.github.io">wt</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://wt-do.github.io/2024/10/31/Internet/">https://wt-do.github.io/2024/10/31/Internet/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://wt-do.github.io" target="_blank">wt-do的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/touxiang.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer=""></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2024/10/31/idea%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%EF%BC%9A/" title="数据库"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">数据库</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/touxiang.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"></div><div class="author-info__name">wt</div><div class="author-info__description">这里有我的奇妙旅行</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/dashboard" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:xxxxxx@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到我的博客</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C"><span class="toc-number">1.</span> <span class="toc-text">网络</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%9A"><span class="toc-number">2.</span> <span class="toc-text">服务器：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#web%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BD%AF%E4%BB%B6%EF%BC%9ATomcat"><span class="toc-number">2.1.</span> <span class="toc-text">web服务器软件：Tomcat</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8%E6%8A%A5%E9%94%99%EF%BC%9A"><span class="toc-number">2.1.0.0.0.1.</span> <span class="toc-text">启动报错：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#5-%E5%85%B3%E9%97%AD%EF%BC%9A"><span class="toc-number">2.1.0.0.0.2.</span> <span class="toc-text">5.关闭：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%EF%BC%9A"><span class="toc-number">2.1.0.0.0.3.</span> <span class="toc-text">配置：</span></a></li></ol></li></ol></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#Servlet%EF%BC%9Aserver-applet"><span class="toc-number">3.</span> <span class="toc-text">Servlet：server applet</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86%EF%BC%9A"><span class="toc-number">3.0.0.0.0.1.</span> <span class="toc-text">执行原理：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Servlet%E4%B8%AD%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%96%B9%E6%B3%95%EF%BC%9A"><span class="toc-number">3.0.0.0.0.2.</span> <span class="toc-text">Servlet中的生命周期方法：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#IDEA%E4%B8%8Etomcat%E7%9A%84%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE"><span class="toc-number">3.0.0.0.0.3.</span> <span class="toc-text">IDEA与tomcat的相关配置</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Servlet%E7%9A%84%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%EF%BC%9A"><span class="toc-number">3.0.0.0.0.4.</span> <span class="toc-text">Servlet的体系结构：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Servlet%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE"><span class="toc-number">3.0.0.0.0.5.</span> <span class="toc-text">Servlet相关配置</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#HTTP%EF%BC%9A"><span class="toc-number">4.</span> <span class="toc-text">HTTP：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Request%EF%BC%9A"><span class="toc-number">5.</span> <span class="toc-text">Request：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#request%E5%8A%9F%E8%83%BD%EF%BC%9A"><span class="toc-number">5.0.1.</span> <span class="toc-text">request功能：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E8%8E%B7%E5%8F%96%E8%AF%B7%E6%B1%82%E8%A1%8C%E6%95%B0%E6%8D%AE"><span class="toc-number">5.0.1.1.</span> <span class="toc-text">1.获取请求行数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E8%AF%B7%E6%B1%82%E5%A4%B4%EF%BC%9A"><span class="toc-number">5.0.1.2.</span> <span class="toc-text">获取请求头：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E8%AF%B7%E6%B1%82%E4%BD%93%E6%95%B0%E6%8D%AE%EF%BC%9A"><span class="toc-number">5.0.1.3.</span> <span class="toc-text">获取请求体数据：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0%E9%80%9A%E7%94%A8%E6%96%B9%E5%BC%8F-post%E5%92%8Cget%E9%83%BD%E8%83%BD%E7%94%A8"><span class="toc-number">5.0.1.4.</span> <span class="toc-text">获取请求参数通用方式(post和get都能用)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%B7%E6%B1%82%E8%BD%AC%E5%8F%91%EF%BC%9A"><span class="toc-number">5.0.1.5.</span> <span class="toc-text">请求转发：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B1%E4%BA%AB%E6%95%B0%E6%8D%AE%EF%BC%9A"><span class="toc-number">5.0.1.6.</span> <span class="toc-text">共享数据：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96ServletContext"><span class="toc-number">5.0.1.7.</span> <span class="toc-text">获取ServletContext:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#response%EF%BC%9A"><span class="toc-number">5.1.</span> <span class="toc-text">response：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Response%E5%AF%B9%E8%B1%A1"><span class="toc-number">5.1.1.</span> <span class="toc-text">Response对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%9D%E5%AF%B9%E8%B7%AF%E5%BE%84"><span class="toc-number">5.1.2.</span> <span class="toc-text">绝对路径</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ServletContex%EF%BC%9A"><span class="toc-number">5.1.3.</span> <span class="toc-text">ServletContex：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%9A%E8%AF%9D%E6%8A%80%E6%9C%AF%EF%BC%9A"><span class="toc-number">5.2.</span> <span class="toc-text">会话技术：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Cookie"><span class="toc-number">5.2.0.1.</span> <span class="toc-text">Cookie</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Session"><span class="toc-number">5.2.0.2.</span> <span class="toc-text">Session</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JSP"><span class="toc-number">5.3.</span> <span class="toc-text">JSP:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MVC"><span class="toc-number">5.4.</span> <span class="toc-text">MVC:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#EL%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">5.5.</span> <span class="toc-text">EL表达式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JSTL"><span class="toc-number">5.6.</span> <span class="toc-text">JSTL:</span></a></li></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/10/31/Internet/" title="网络编程">网络编程</a><time datetime="2024-10-31T13:57:32.076Z" title="发表于 2024-10-31 21:57:32">2024-10-31</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/10/31/idea%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%EF%BC%9A/" title="数据库">数据库</a><time datetime="2024-10-31T13:57:32.062Z" title="发表于 2024-10-31 21:57:32">2024-10-31</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/10/31/C++%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%9A/" title="C++语法基础">C++语法基础</a><time datetime="2024-10-31T13:57:32.052Z" title="发表于 2024-10-31 21:57:32">2024-10-31</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/10/31/%E6%A8%A1%E7%94%B5%E7%AC%94%E8%AE%B0%EF%BC%9A/" title="模电与数电">模电与数电</a><time datetime="2024-10-31T13:57:32.041Z" title="发表于 2024-10-31 21:57:32">2024-10-31</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/10/09/JRE%20(Java%20Runtime%20Environment)/" title="Javase基础">Javase基础</a><time datetime="2024-10-09T13:09:27.475Z" title="发表于 2024-10-09 21:09:27">2024-10-09</time></div></div></div></div></div></div></main><footer id="footer" style="background: transparent"><div id="footer-wrap"><div class="copyright">©2020 - 2024 By wt</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/click-heart.min.js" async="async" mobile="true"></script><script async="" data-pjax="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"></div></div><hr><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div></body></html>
